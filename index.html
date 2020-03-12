@@ -1,0 +1,362 @@
+<!doctype html>
+
+<html>
+	
+<head>
+	
+<!--The following displays language used in browser to interpret page -->
+<meta charset="UTF-8">
+
+<!--The following line of code displays the page title on a browser tab -->
+<title>Site Title | Home</title>
+
+<!--link tags are for linking to external files, in this case your CSS stylesheet-->
+<link href="style.css" rel="stylesheet" type="text/css">
+	
+<!--link tags are for linking to external files, in this case a special CSS stylesheet-->
+<link href="normalize.css" rel="stylesheet" type="text/css">
+
+<!--the following tag tells the browser to adjust the site according to screen size-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!--The following code links to the jquery library -->
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+
+<!--The following code links to the javascript file that runs the slideshow -->	
+<script type="text/javascript" src="js/jquery.cycle2.min.js"></script>
+    
+<!--The following code links to the javascript file that runs the parallax image -->    
+<script src="js/parallax.min.js"></script>
+	
+<!--The following code links to Google Fonts-->
+<link href="https://fonts.googleapis.com/css?family=Spartan&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat|Spartan&display=swap" rel="stylesheet">
+	
+<!--The following javscript runs the jquery slideshow -->
+<script type="text/javascript">
+$('#slider').cycle({});
+</script>  
+
+<!--The following javascript runs the nav bar which disappears on scroll-->
+<script type="text/javascript">
+// Hide Header on on scroll down
+var didScroll;
+var lastScrollTop = 0;
+var delta = 5;
+var navbarHeight = $('header').outerHeight();
+
+$(window).scroll(function(event){
+    didScroll = true;
+});
+
+setInterval(function() {
+    if (didScroll) {
+        hasScrolled();
+        didScroll = false;
+    }
+}, 250);
+
+function hasScrolled() {
+    var st = $(this).scrollTop();
+    
+    // Make sure they scroll more than delta
+    if(Math.abs(lastScrollTop - st) <= delta)
+        return;
+    
+    // If they scrolled down and are past the navbar, add class .nav-up.
+    // This is necessary so you never see what is "behind" the navbar.
+    if (st > lastScrollTop && st > navbarHeight){
+        // Scroll Down
+        $('header').removeClass('nav-down').addClass('nav-up');
+    } else {
+        // Scroll Up
+        if(st + $(window).height() < $(document).height()) {
+            $('header').removeClass('nav-up').addClass('nav-down');
+        }
+    }
+    
+    lastScrollTop = st;
+}
+</script>
+    
+<!--Favicon - images are in a folder called 'fav'-->
+<link rel="apple-touch-icon" sizes="180x180" href="img/fav/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="img/fav/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img/fav/favicon-16x16.png">
+<link rel="manifest" href="img/fav/site.webmanifest">
+<link rel="mask-icon" href="img/fav/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<!--End Favicon-->
+    
+<!--back to top button-->
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<script>
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
+    document.getElementById("myBtn").style.display = "block";
+  } else {
+    document.getElementById("myBtn").style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}    
+</script>   
+</head>
+
+<body>  
+
+    
+<!--beginning of navigation section-->
+<header>
+<div class="nav-container">
+<div class="brand"><img src="img/logo.png" width="190" height="100" alt=""/></div>
+<nav>
+<div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
+  <ul class="nav-list">
+        <li>
+          <a href="#home">Home</a>
+        </li>
+	   <li>
+          <a href="#gal">Slide Show</a>
+		  </li>
+	  	<li>
+          <a href="#tl">Testimony</a>
+        </li>
+        <li>
+          <a href="#vid">Video</a>
+			</li>
+      <li>
+          <a href="#num">More Info</a>
+			</li>
+      </ul>
+</nav>
+</div>
+    
+<!--closing navigation tag-->
+</header>
+<!--end of navigation section-->
+    
+<!--main image-->
+<div class="container">
+</div>
+<!--animated welcome-->
+<div class="wrapper">
+    
+    <div class="switch-container">
+  <div id="boo" class="hide">
+    Dark Mode
+  </div>
+<label class="switch">
+  <input id="toggle" ontoggle="myFunction()"  type="checkbox" />
+  <div class="slider round"><div><div class="ghost" /></div></div>
+</label>
+</div>
+<!--animated welcome code here-->	
+</div>
+
+    
+<!--beginning of main content area-->
+<div class="row whiteBG">
+<h2 id="home">
+<span class="redText">About</span>&nbsp;<span class="blackText">PCN</span></h2>
+<article>
+<p class="tab">Pilipino Cultural Night hosted annually by Cal Poly's Pilipino Cultural Exchange (PCE) Club. It is a nationwide event held by different Filipino cultural clubs in the United States to tell the stories of the Filipino culture through mediums like dance, song and script. <br><br>This year's PCN will be hosted on April 24th and 25th; it will be the 31st annual PCN held at Cal Poly. <br> <br>Learn more about the students participating! </p>
+<p class="tab"><a href="#gal">Navigation</a></p>
+</article>
+</div>
+
+<!--beginning of slideshow section-->
+<div class="row whiteBG"><!--beginning of row-->
+<h2 id="gal"> 
+    <span class="SSText">Workshoping</span>&nbsp;<span class="SS2Text">Culture</span> </h2>
+<article><!--beginning of article-->
+<p class="tab">PCE club members prepare for there annual event, PCN. </p>
+<!--beginning of slideshow-->
+<div id="slider"
+data-cycle-caption="#alt-caption"
+data-cycle-caption-template="{{alt}}"
+data-cycle-fx="scrollHorz"
+data-cycle-pause-on-hover="true"
+data-cycle-speed="200">
+<div class="cycle-prev"></div>
+<div class="cycle-next"></div>
+<img src="img/1.jpg" width="100%" height="100%" alt="Baker 101, a typically silent room throughout the day, is filled with chatter as students fill in at 7p.m. The Pilipino Cultural Exchange Club holds in Pilipino Cultural Night Workshops in Baker every other Friday. PCE hosts PCN annually in the Performing Arts Center to showcase their culture and club members talent. There are three different aspects to PCN: script, modern and Kasayahn. Script includes a play in which participants are assigned lines and act, modern is a modern dance group and Kasayahn performs traditional Filipino dances. PCE members who chose to participate in PCE attend two weekly meetings for each aspect they pick along with a three hour workshop every Friday. "/>
+<img src="img/2.jpg" width="100%" height="100%" alt="Pictured right to left Camille Lo Porciuncula, a biochemistry second year, Zen Tran a Liberal Arts and Engineering Studies third year, and Kristina Pimentel, a Biomedical Engineer fourth year, are in charge of organizing the different aspects of PCN. At each workshop, those who are participating in script are called to the front to do a script recap. Pimentel narrates while those in the scene stand and rehearse their lines.
+"/>
+<img src="img/3.jpg" width="100%" height="100%" alt="
+“The recaps are my favorite part,” Jazmyn Gray, a third year Journalism major, said, “It’s less pressure than a real rehearsal.” Students sit on the ground, and are directed to stand up when their scene is introduced. The occasional delay causes a giggle in the club when the student eventually rises for their line. 
+"/>
+<img src="img/4.jpg" width="100%" height="100%" alt="Club members are expected to conduct presentations during the workshop about issues salient in the Filipino community. “We want to showcase to the members how the club came to be and the history behind the show,” Britney Lozano, a second year Chemistry major, said. The first presentation focused on labor brokerage in the Philippines. Using resources like Robyn Magalit Rodriguez’ “Toward a Critical Filipino Studies Approach to Philippine Migration” and the scenes from the filipino film “Anak,” they showed how families are affected.  "/>
+<img src="img/5.jpg" width="100%" height="100%" alt="The presenters allowed club members to discuss the topic with questions to guide their dialogue. “We just want people to be educated on what they’re getting involved with,” Lozano said. To Lozano the appreciation of the filipino culture is important, because she does not directly identify with it. “I look white, but I swear I’m Mexican,” she said, “I appreciate the safe space PCE has created for me, and I want to make sure I respect the experiences of everyone, even though that sounds cheesy.” "/>
+<img src="img/6.jpg" width="100%" height="100%" alt="The story of Lola Pulido was shared with the club. She was a filipino slave that lived with Alex Tizon, the author’s, family for over 53 years. She was never compensated for her work and faced physical and emotional abuse. “Some of the themes of our play focus on this type of story,” Lo Porciuncula said, “we want to highlight the struggles we’ve faced, and our resilience.”"/>
+<img src="img/7.jpg" width="100%" height="100%" alt="Waves of snaps can be heard as the discussion opens to the entire club. Club members answered the question, “Do you believe Lola was a slave? Why or why not?” And “Why were Filipinos not as shocked as Westerners about the Tizon Family having someone like Lola in their household? What does this say about Filipino culture?” These questions offered a critical reflection of the Filipino culture and how it has changed since. "/>
+<img src="img/8.jpg" width="100%" height="100%" alt="Club members chatted as the heavier presentations came to a close. “Workshops are a lot, but I enjoy being able to see my friends and catch up,” Gray said. 
+"/>
+<img src="img/9.jpg" width="100%" height="100%" alt="“PCE to me means a family,” Lo Poriuncula said,” I took this position because I wanted to give back to family.” PCN will continue holding its rehearsals and workshops throughout Winter Quarter until mid-April. “PCN is really one of those things that makes you say you’ll never do again, but when sign ups come around next year, I can't wait to sign up,” Gray said. "/>
+</div><!--end of slideshow-->
+<!--beginning of slideshow caption-->
+<div id="alt-caption" class="center">
+</div><!--end of slideshow caption-->
+<p class="tab"><a href="#tl">Navigation</a></p>
+</article><!--end of article-->
+</div><!--end of row-->
+<!--end of slideshow section-->
+<!-------------------------------TESTING---------------------------------------------->
+    
+    
+<!--beginning of audio section-->
+<div class="row whiteBG">
+<h2 id="tl"><span class="GFText">Meet the</span>&nbsp;<span class="GF2Text">Returners!</span></h2>
+<article>
+  <p class="tab">Click on images to hear current PCN participant's favorite memories from last year's PCN. <br>(Double-click to pause audio)</p>
+  <div class="table">
+	<div id="trip">
+<audio id="audio_1">
+    <source src="audio/audio_1.mp3" type="audio/mpeg" />
+</audio>        
+<audio id="audio_2">
+    <source src="audio/audio_2.mp3" type="audio/mpeg" />
+</audio>        
+<audio id="audio_3">
+	<source src="audio/audio_3.mp3" type="audio/mpeg" />
+</audio>
+        
+<img src="img/rollover/1.gif" class="rollover" alt="description" onMouseOver="this.src='img/rollover/1.jpg'" onMouseOut="this.src='img/rollover/1.gif'" onClick="document.getElementById('audio_1').play(); return false;" onDblClick="document.getElementById('audio_1').pause(); return false;">
+ /&gt; 
+            
+<img src="img/rollover/2.gif" class="rollover" alt="description" onMouseOver="this.src='img/rollover/2.jpg'" onMouseOut="this.src='img/rollover/2.gif'" onClick="document.getElementById('audio_2').play(); return false;" onDblClick="document.getElementById('audio_2').pause(); return false;">
+ /&gt;
+            
+<img src="img/rollover/3.gif" class="rollover" alt="description" onMouseOver="this.src='img/rollover/3.jpg'" onMouseOut="this.src='img/rollover/3.gif'" onClick="document.getElementById('audio_3').play(); return false;" onDblClick="document.getElementById('audio_3').pause(); return false;">
+/&gt;
+	</div>
+</div>
+<p class="tab"><a href="#vid">Navigation</a></p>		
+</article>
+</div>
+<!--end of audio section-->
+    
+<!--beginning of parallax image-->
+<div class="parallax" data-parallax="scroll" data-bleed="10" data-speed="0.2" iosFix="true" data-image-src="img/parallax.jpg">
+</div>
+<!--end of parallax image-->
+
+<!--beginning of video section-->
+<div class="row whiteBG">
+<h2 id="vid"><span class="vdText">Storytelling Through</span>&nbsp;<span class="vd2Text">Art</span></h2>
+<article>
+<p class="tab">Blurb</p>	
+<video width="100%" height="100%" poster="img/poster.jpg" controls>
+<source src="img/video.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p class="tab"><a href="#num">Navigation</a></p>
+</article>
+</div>
+<!--end of video section-->
+
+<!--beginning of infographic section-->
+<div class="row whiteBG">
+<h2 id="num"><span class="igText">I n f o</span>&nbsp;<span class="ig2Text">g r a p h ic</span></h2>
+<article>
+<p class="tab"></p>
+<script id="infogram_0_267873bf-03ea-48a0-82dc-73f6d271525e" title="pcn" src="https://e.infogram.com/js/dist/embed.js?BM4" type="text/javascript"></script><div style="padding:8px 0;font-family:Arial!important;font-size:13px!important;line-height:15px!important;text-align:center;border-top:1px solid #dadada;margin:0 30px"><a href="https://infogram.com/267873bf-03ea-48a0-82dc-73f6d271525e" style="color:#989898!important;text-decoration:none!important;" target="_blank">pcn</a><br><a href="https://infogram.com" style="color:#989898!important;text-decoration:none!important;" target="_blank" rel="nofollow">Infogram</a></div>
+</article>
+</div>
+<!--end of infographic section-->
+	
+<!--beginning of footer-->
+<footer>Road to PCN | San Luis Obispo, CA | <a href="mailto: cileyva@calpoly.edu?Subject=Inquiry" target="_top">Send Email</a> | Copyright 2020 | Site by Cinthia Leyva | im tired
+</footer>
+<!--end of footer-->
+	
+</body>
+	
+<!--the following script controls the responsive navigation-->
+<script>
+	(function($) { // Begin jQuery
+  $(function() { // DOM ready
+    // If a link has a dropdown, add sub menu toggle.
+    $('nav ul li a:not(:only-child)').click(function(e) {
+      $(this).siblings('.nav-dropdown').toggle();
+      // Close one dropdown when selecting another
+      $('.nav-dropdown').not($(this).siblings()).hide();
+      e.stopPropagation();
+    });
+    // Clicking away from dropdown will remove the dropdown class
+    $('html').click(function() {
+      $('.nav-dropdown').hide();
+    });
+    // Toggle open and close nav styles on click
+    $('#nav-toggle').click(function() {
+      $('nav ul').slideToggle();
+    });
+    // Hamburger to X toggle
+    $('#nav-toggle').on('click', function() {
+      this.classList.toggle('active');
+    });
+  }); // end DOM ready
+})(jQuery); // end jQuery
+	</script>
+	<script>
+	var headertext = [];
+var headers = document.querySelectorAll("#miyazaki th"),
+tablerows = document.querySelectorAll("#miyazaki th"),
+tablebody = document.querySelector("#miyazaki tbody");
+for(var i = 0; i < headers.length; i++) {
+	var current = headers[i];
+	headertext.push( current.textContent.replace( /\r?\n|\r/,"") );
+}
+for (var i = 0, row; row = tablebody.rows[i]; i++) {
+	for (var j = 0, col; col = row.cells[j]; j++) {
+		col.setAttribute("data-th", headertext[j]);
+	}
+}
+</script>
+	
+	<!----Prevents audio tracks from playing simultaneously---->
+<script>
+document.addEventListener('play', function(e){
+    var audios = document.getElementsByTagName('audio');
+    for(var i = 0, len = audios.length; i < len;i++){
+        if(audios[i] != e.target){
+            audios[i].pause();
+        }
+    }
+}, true);
+    </script>
+    
+    <script>
+    document.getElementById("toggle").addEventListener("click", changeColor);
+
+isClicked = true;
+
+function changeColor() {
+  if (isClicked) {
+    document.getElementById("boo").classList.remove("hide");
+    document.getElementById("boo").classList.add("show");
+       var element = document.body;
+   element.classList.toggle("dark-mode");
+    isClicked = false;
+  } 
+    else {
+    document.getElementById("boo").classList.remove("show");
+    document.getElementById("boo").classList.add("hide");
+            var element = document.body;
+          element.classList.toggle("dark-mode");
+        
+    isClicked = true;
+     
+  }  
+}
+ 
+    </script>
+
+</html>
