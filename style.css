@@ -1,0 +1,797 @@
+/* CSS Document */
+/*-----------boo-----------------------*/
+#boo {
+  color: white;
+  margin-bottom: 12px;
+}
+
+#boo.hide {
+  opacity: 0;
+}
+
+.switch-container {
+  width: 100%;
+  height: 10vh;
+    background-color: #e8e9ea;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+    padding: 15px;
+  align-items:  left;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 25px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: grey;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #ef4c45;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #ef4c45;
+}
+
+input:checked + .slider > div {
+  transform: translateX(65px);
+}
+
+input + .slider > div {
+  transition: transform 0.4s;
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.ghost {
+  position: absolute;
+
+  left: 0;
+  top: -10px;
+  width: 40px;
+  height: 40px;
+
+  background-color: white;
+  border-radius: 100px;
+
+  animation: bobble 4.3s infinite;
+
+  filter: drop-shadow(0px 5px 12px rgba(255, 255, 255, 0.6));
+}
+
+@keyframes bobble {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(15%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes sway {
+  0% {
+    transform: translateX(-2px);
+  }
+  50% {
+    transform: translateX(2px);
+  }
+  100% {
+    transform: translateX(-2px);
+  }
+}
+
+@keyframes sway-more {
+  0% {
+    transform: translateX(-4px);
+  }
+  50% {
+    transform: translateX(4px);
+  }
+  100% {
+    transform: translateX(-4px);
+  }
+}
+
+@keyframes sway-left {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(-4px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes sway-left-less {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(-2px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes sway-right {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(4px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes sway-right-less {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(2px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes blink {
+  0% {
+    top: 16px;
+    height: 8px;
+  }
+  39% {
+    top: 16px;
+    height: 8px;
+  }
+  40% {
+    top: 20px;
+    height: 2px;
+  }
+  50% {
+    top: 20px;
+    height: 2px;
+  }
+  51% {
+    top: 16px;
+    height: 8px;
+  }
+  100% {
+    top: 16px;
+    height: 8px;
+  }
+}
+
+.ghost:after {
+  content: "";
+  position: absolute;
+  left: calc(50% - 7px);
+  top: 16px;
+  width: 10px;
+  height: 8px;
+
+  border-right: 3px solid black;
+  border-left: 3px solid black;
+
+  animation: bobble 2s infinite, sway-more 2s infinite 1s, blink 4.25s infinite;
+}
+
+
+/* 
+input:checked + .slider .ghost:after {
+  animation: sway-right 0.5s;
+}
+
+
+input:checked + .slider .ghost:before{
+  animation: sway-right 0.5s;
+}
+
+input:not(:checked) + .slider .ghost:after {
+  animation: sway-left 0.5s;
+}
+
+
+input:not(:checked) + .slider .ghost:before{
+  animation: sway-left 0.5s;
+}
+ */
+
+.ghost:before {
+  content: "";
+  position: absolute;
+
+  top: calc(50% - 6px);
+  left: -10%;
+  width: 120%;
+  height: 12px;
+  border-radius: 100px;
+
+  background-color: white;
+
+  animation: sway 2s infinite;
+}
+
+#wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+#wrap p {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  color: rgba(255,255,255,.5);
+  font-size: 30px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  text-align: center;
+}
+
+.ball {
+  pointer-events: none;
+  position: absolute; 
+  width: 10px;
+  height: 10px;
+  border-radius: 50%; 
+  background: gray;
+  animation: implode 1s ease-in-out;
+  animation-fill-mode: both;
+  opacity: .5;
+}
+
+@keyframes implode {
+  100% {transform: scale(0)}
+}
+
+.dark-mode .whiteBG {
+  background-color: black;
+    color: white
+}
+.dark-mode .redText {
+  background-color: black;
+    color: white
+}
+.dark-mode .SSText {
+  background-color: black;
+    color: white
+}
+.dark-mode .GFText {
+  background-color: black;
+    color: white
+}
+.dark-mode .vdText {
+  background-color: black;
+    color: white
+}
+.dark-mode .igText {
+  background-color: black;
+    color: white
+}
+.dark-mode .switch-container {
+  background-color: black;
+    color: white
+}
+
+.dark-mode #alt-caption {
+  background-color: black;
+    color: white
+}
+/*----------------PARALLAX IMAGE-----------------*/
+.parallax {
+	min-height: 450px;
+	background: transparent;
+	padding-top: 0px;
+}
+
+body {
+	color: black; /*(default font color for the entire page)*/
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 300; /*(font thickness)*/
+    
+}
+
+/*----------------navigation section-----------------*/
+header {
+	height: 105px; /*(height of nav bar)*/
+	position: fixed; /*(keeps nav bar visible when scrolling)*/
+	width: 100%;
+	top: 0;
+	z-index: 5; /*(ensures nav bar appears in front of other elements)*/
+	font-size: 1em;
+    transition: top 0.2s ease-in-out;
+    background-color: white;
+    opacity: 0.75;
+}
+
+
+/*----------------navigation container-----------------*/
+.nav-container {
+  margin: 0 auto;
+}
+
+/*----------------text-based logo-----------------*/
+.brand {
+    padding: 15px 0 15px 45px;
+    float: left;
+}
+
+/*----------------mobile navigation--------------------*/
+.nav-mobile {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #cfaf4e;
+  height: 70px;
+  width: 70px;
+}
+
+/*----------------navigation buttons-----------------*/
+nav {
+  float: right;
+}
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+nav ul li {
+  float: left;
+  position: relative;
+}
+nav ul li a,
+nav ul li a:visited {
+    display: block;
+    padding: 0 20px;
+    line-height: 105px;
+    background-color: #cfaf4e;
+    color: #5d6260;
+    text-decoration: none;
+	font-weight: bold;
+}
+nav ul li a:hover,
+nav ul li a:visited:hover {
+    background-color: #FFF;
+    color: #0f3aa2;
+}
+nav ul li a:not(:only-child):after,
+nav ul li a:visited:not(:only-child):after {
+  padding-left: 4px;
+}
+nav ul li ul li {
+  min-width: 190px;
+}
+nav ul li ul li a {
+  padding: 15px;
+  line-height: 20px;
+}
+.nav-dropdown {
+  position: absolute;
+  display: none;
+  z-index: 5;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+}	
+
+a.text:link, a.text:visited {
+    background-color: #3a7ef2;
+    color: white;
+    padding: 4px 4px;
+    text-align: center;
+    text-decoration: none;
+}
+a.text:hover, a.text:active {
+    background-color: white;
+    color: black;
+}
+.row a{
+	color: #5d6260;
+    font-family: "spartan", sans-serif;
+    text-transform: uppercase;
+    padding: .5rem 1rem;
+    padding-right: 2rem;
+    border-radius: 30px;
+    margin: 40px auto;
+    text-align: center;
+    position: relative;
+    display: block;
+    width: 175px;
+    letter-spacing: .3px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: initial;
+    background: url(img/arrow.png) #cfaf4e;
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position: 96%;
+	text-decoration: none;
+}
+.row a:hover{
+	    background-color: #5d6260;
+    color: #cfaf4e;
+	    text-decoration: none;
+    transition: all 0.3s ease-in 0s;
+}
+    .redText
+    {
+        color:black;
+        font-family: "Spartan", sans-serif;
+        
+    }
+    .blackText
+    {
+        color: #cfaf4e;
+        font-family: "Spartan", sans-serif;
+        
+    }
+ .SSText
+    {
+        color:black;
+        font-family: "Spartan", sans-serif;
+        
+    }
+    .SS2Text
+    {
+        color: #bd2c2f;
+        font-family: "Spartan", sans-serif;
+        
+    }
+ .GFText
+    {
+        color:black;
+        font-family: "Spartan", sans-serif;
+        
+    }
+    .GF2Text
+    {
+        color: #0f3aa2;
+        font-family: "Spartan", sans-serif;
+        
+    }
+.vdText
+    {
+        color:black;
+        font-family: "Spartan", sans-serif;
+        
+    }
+.vd2Text
+    {
+        color: #cfaf4e;
+        font-family: "Spartan", sans-serif;
+        
+    }
+.igText
+    {
+        color:black;
+        font-family: "Spartan", sans-serif;
+        
+    }
+.ig2Text
+    {
+        color: #bd2c2f;
+        font-family: "Spartan", sans-serif;
+}
+/*----------------media queries-----------------*/
+
+/*If device width is less than or equal to 800px, then do ...*/
+@media only screen and (max-width: 800px) {
+
+    h2 {
+        font-size: 35px !important;
+    }
+  .nav-mobile {
+    display: block;
+      background-color: #e8e9ea;
+      opacity: 0.75;
+  }
+  nav {
+    width: 100%;
+    padding: 70px 0 15px;
+  }
+  nav ul {
+    display: none;
+  }
+  nav ul li {
+    float: none;
+  }
+  nav ul li a {
+    padding: 15px;
+    line-height: 20px;
+    background-color: white;
+    opacity: 0.75;
+  }
+  nav ul li ul li a {
+    padding-left: 30px;
+  }
+
+  .nav-dropdown {
+    position: static;
+  } 
+    
+  .brand {
+	position: absolute;
+	padding-left: 80px;
+	float: left;
+	color: #000000;
+	font-family: 'Montserrat', sans-serif;
+	font-size: small;
+  }
+	
+	.image2 {
+	cursor:pointer;
+	width: 90%;
+	height: 90%;
+}
+	
+}
+@media screen and (min-width: 800px) {  
+    
+/*-----styles for jquery dropdown menu-----*/
+  .nav-list {
+    display: block !important;
+  }
+}
+
+#nav-toggle {
+  position: absolute;
+  left: 18px;
+  top: 22px;
+  cursor: pointer;
+  padding: 10px 35px 16px 0px;
+}
+#nav-toggle span,
+#nav-toggle span:before,
+#nav-toggle span:after {
+  cursor: pointer;
+  border-radius: 1px;
+  height: 5px;
+  width: 35px;
+  background: #000000;
+  position: absolute;
+  display: block;
+  content: '';
+  transition: all 300ms ease-in-out;
+}
+#nav-toggle span:before {
+  top: -10px;
+}
+#nav-toggle span:after {
+  bottom: -10px;
+}
+#nav-toggle.active span {
+  background-color: transparent;
+}
+#nav-toggle.active span:before, #nav-toggle.active span:after {
+  top: 0;
+}
+#nav-toggle.active span:before {
+  transform: rotate(45deg);
+}
+#nav-toggle.active span:after {
+  transform: rotate(-45deg);
+}
+
+/*----------------Main Image-----------------*/
+
+.image1 {
+	width: 100%;
+}
+
+.container {
+	position: relative;
+    background-image: url(img/main.jpg);
+    height: 75vh;
+    background-size: cover;
+    background-position: 50% 50%;
+}
+/*----------------MAIN TEXT OVER IMAGE - optional-----------------*/
+
+/*----------------Main Content Area(this is where all the content below the navigation bar will go)--*/
+.row {
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 0; /*(centers content within the row)*/
+	position: relative;
+	padding: 65px 45px;
+    text-align: center;
+}
+
+article {
+	max-width: 1100px;
+	margin-left: auto;
+	margin-right: auto;
+	line-height: 20px;
+}
+
+h1 {
+	line-height: 1.5;
+	text-transform: uppercase;
+	font-size: 16px;
+    color: lightgray;
+}
+
+h2 {
+	font-family: "Spartan", sans-serif;
+    text-align: center;
+    font-size: 55px;
+    text-transform: uppercase;
+    font-weight: 900;
+    color: black;
+    background: #3a7ef2;
+    -webkit-background-clip: text;
+    margin: 0;
+    line-height: initial;
+}
+
+p {
+	line-height: 1.5;
+}
+
+/*----------------SLIDESHOW-----------------*/
+
+#slider {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  z-index: 1;
+  position: relative;        
+}
+
+/* prev / next links */
+.cycle-prev, .cycle-next { 
+  position: absolute;
+  top: 0;
+  width: 30%;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  z-index: 800;
+  height: 100%;
+  cursor: pointer; 
+  }
+  
+.cycle-prev { 
+  left: 0;
+  background: url(img/arrowleft.png) 50% 50% no-repeat;
+  }
+  
+.cycle-next { 
+right: 0;
+background: url(img/arrowright.png) 50% 50% no-repeat;
+}
+
+.cycle-prev:hover, .cycle-next:hover { 
+opacity: 1;
+filter: alpha(opacity=70)
+}
+
+
+/* captions below slideshow*/
+#alt-caption {
+    background-color: rgb(93, 98, 99, 0.6);
+    color: #ffffff;
+    font-family: "Montserrat", sans-serif;
+    font-size: .9em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/*----------------VIDEO-----------------*/
+video {
+    position: relative;
+    width: 100%;    
+}
+
+/*----------------FOOTER-----------------*/
+footer {
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 25px;
+	padding-right: 25px;
+	text-align: center;
+	font-size: 10px;
+}
+/*(footer links)*/
+footer a {
+	text-decoration: none; /*(nullifies underline)*/
+	color: #000000;
+	font-family: 'Spartan', sans-serif;
+}
+/*(link color when moused over)*/
+footer a:hover {
+	color: #cc00b3;
+}
+
+/*----------------AUDIO BOARD-----------------*/
+
+.table {
+	position: relative;
+	text-align: center;
+	color: greenyellow;
+	font-size: 0vw;
+    
+}
+
+.trip {text-align:center;}
+
+.trip img{
+  display:inline-block;
+  width:30%;
+  margin:0 1% 0 1%;
+  }
+
+.rollover {
+	cursor: pointer;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/*--------------background colors----------*/
+.whiteBG {
+	background-color: #e8e9ea;
+}
+
+/*----------------back to top button-----------------*/
+#myBtn {
+  
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: #cfaf4e; /* Set a background color */
+  color: 5d6260; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+  border-radius: 10px; /* Rounded corners */
+  font-family: 'Spartan', sans-serif;
+  font-size: 10px; /* Increase font size */
+}
+
+#myBtn:hover {
+  background-color: #5d6260;
+    color: #cfaf4e
+  opacity: 0.75;   
+}
+
+/*----menu dissapear when scroll---*/
+.nav-up {
+  top: -105px; 
+}
